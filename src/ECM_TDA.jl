@@ -14,7 +14,7 @@ using FileIO
 using Distances
 #using Images Has dependency error with Ripserer
 using CSV
-using PyCall
+#using PyCall
 using Ripserer
 using TiffImages
 using NPZ
