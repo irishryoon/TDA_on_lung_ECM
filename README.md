@@ -9,7 +9,7 @@ This repository contains code for paper [INSERT PAPER]. If you use these methods
 # Install
 Download <a href="https://julialang.org/downloads/">Julia</a>. We recommend downloading Julia v.1.10.1. For detailed instructions on installing Julia and the necessary packages, see [Julia_install_instructions.pdf][Julia_install_instructions.pdf\]
 
-# Quick-start on computing topological features
+# Tutorial: Quick-start on computing topological features
 
 ## 1. Computing persistent homology features
 
@@ -60,6 +60,7 @@ The outputs are the following:
 * The input directory must have two subdirectories, one for each cell type. Let's say `cell_type1` and `cell_type2` are the names of the subdirectories. Here, cell type can refer to cancer cells, leukocytes, or ECM. 
 	* In the subdirectories `cell_type1` and `cell_type2`, there must be csv files with the same name. This indicates that the csv files in the two subdirectories represent the point cloud from the same image. 
 	* As before, each csv file is the xy-coordinates of the point clouds. 
+* Note: Dowker persistence diagram computation takes longer than computing the usual persistence diagram. We therefore usually compute Dowker persistence diagrams on a subsample of the point cloud. Because of the random nature of subsampling, the subsampled cells will lead to slightly different Dowker persistence diagrams. Any analysis that uses Dowker persistence diagrams, such as PCA or UMAP, will also depend on the subsampling. 
 
 ### Using Julia REPL
 To compute the Dowker features, start Julia. Make sure you are in the root directory of this git repository. Run the following:
@@ -87,20 +88,10 @@ For example,
 
 
 # Analysis
+* See the "Analysis" directory for topological feature computation and analysis on a small example dataset. 
 * `src/ECM_TDA.jl` contains code for computing topological (PH and Dowker PH features), along with other helper functions that are relevant to the analysis
 * To use the script, run the following.
 ```
 include("src/ECM_TDA.jl")
 using .ECM_TDA
 ```
-* The following notebooks in `main_analysis` illustrate how one can compute topological features:
-	* `03_cells_PH_computation.ipynb`
-	* `05_ECM_PH_computation.ipynb`
-	* `07_Dowker_PH_computation.ipynb`
-
-
-# Directories
-* `main_analysis`: The main analysis 400 ROIs
-* `image_resolution_sensitivity`: Analysis of the robustness of PH features to ECM image resolution. 
-* `wholeslide`: Analysis of whole-slide images
-* `transcriptomics`: Analysis of topological features and transcriptional data
