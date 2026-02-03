@@ -7,7 +7,7 @@ This repository contains code for paper [INSERT PAPER]. If you use these methods
 * Due to the large size of data, not all data files are included in this repository. 
 
 # Install
-Download <a href="https://julialang.org/downloads/">Julia</a>. We recommend downloading Julia v.1.10.1. For detailed instructions on installing Julia and the necessary packages, see [Julia_install_instructions.pdf][Julia_install_instructions.pdf\]
+Download <a href="https://julialang.org/downloads/">Julia</a>. We recommend downloading Julia v.1.10.2. For detailed instructions on installing Julia and the necessary packages, see [Julia_install_instructions.pdf][Julia_install_instructions.pdf\]
 
 # Tutorial: Quick-start on computing topological features
 
