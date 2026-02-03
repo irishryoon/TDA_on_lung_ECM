@@ -1218,7 +1218,7 @@ function plot_barcode(barcode;
             death = death_max * 1.2
         end
         
-        plot!(p,[birth,death],[idx,idx], legend = false, linecolor = color, hover = "class " *string(i); kwargs...)
+        plot!(p,[birth,death],[idx,idx], legend = false, linecolor = color; kwargs...)# hover = "class " *string(i); )
         idx += 1
     end
 
@@ -1299,13 +1299,13 @@ points = barcode
 
     # if highlight is provided, color specific points with the given color
     if highlight != []
-        scatter!(points[highlight,1], points[highlight,2]; kwargs..., color = highlight_color, labels = "", hover = highlight)
+        scatter!(points[highlight,1], points[highlight,2]; kwargs..., color = highlight_color, labels = "")
     end
 
     # plot the cutoff (dotted line) if provided
     if cutoff != nothing
         f(x) = x + cutoff
-        plot!(f, linestyle = :dash, c = "black", label = "", hover = false, linewidth = threshold_lw)
+        plot!(f, linestyle = :dash, c = "black", label = "", linewidth = threshold_lw)
     end
 
     return p

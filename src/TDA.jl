@@ -197,13 +197,13 @@ function plot_PD(barcode;
 
     # if highlight is provided, color specific points with the given color
     if highlight != []
-        scatter!(points[highlight,1], points[highlight,2]; kwargs..., color = highlight_color, labels = "", hover = highlight)
+        scatter!(points[highlight,1], points[highlight,2]; kwargs..., color = highlight_color, labels = "")
     end
 
     # plot the cutoff (dotted line) if provided
     if cutoff != nothing
         f(x) = x + cutoff
-        plot!(f, linestyle = :dash, c = "black", label = "", hover = false, linewidth = threshold_lw)
+        plot!(f, linestyle = :dash, c = "black", label = "", linewidth = threshold_lw)
     end
 
     return p

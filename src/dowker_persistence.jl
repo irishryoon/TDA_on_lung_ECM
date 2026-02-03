@@ -87,19 +87,19 @@ function plot_barcode(barcode;
             
             # if epsilon is missing, highlight the entire bar
             if ismissing(epsilon)
-                plot!(p,[birth, death], [idx, idx], legend = false, linecolor = selection_color, hover = "class " *string(i); kwargs...)
+                plot!(p,[birth, death], [idx, idx], legend = false, linecolor = selection_color; kwargs...)#, hover = "class " *string(i))
             
             # if epsilon is provided, only highlight the portion of the bar on the right side of epsilon    
             else 
                 if birth <= epsilon
-                    plot!(p,[birth, epsilon], [idx, idx], legend = false, linecolor = color, hover = "class " *string(i); kwargs...)
-                    plot!(p,[epsilon, death], [idx, idx], legend = false, linecolor = selection_color, hover = "class " *string(i); kwargs...)
+                    plot!(p,[birth, epsilon], [idx, idx], legend = false, linecolor = color; kwargs...)
+                    plot!(p,[epsilon, death], [idx, idx], legend = false, linecolor = selection_color; kwargs...)
                 else
-                    plot!(p,[birth, death], [idx, idx], legend = false, linecolor = selection_color, hover = "class " *string(i); kwargs...)
+                    plot!(p,[birth, death], [idx, idx], legend = false, linecolor = selection_color; kwargs...)
                 end
             end
         else
-            plot!(p,[birth,death],[idx,idx], legend = false, linecolor = color, hover = "class " *string(i); kwargs...)
+            plot!(p,[birth,death],[idx,idx], legend = false, linecolor = color; kwargs...)
         end
         idx += 1
     end
@@ -1195,7 +1195,7 @@ idx = findall(x -> x == Inf, points[:,2])
 
 # plot points with death < Inf
 idx2 = [i for i in 1:size(points,1) if i ∉ idx]
-p = scatter(points[idx2,1], points[idx2,2]; kwargs..., color = "grey", labels = "", alpha = 0.5, hover = idx2)
+p = scatter(points[idx2,1], points[idx2,2]; kwargs..., color = "grey", labels = "", alpha = 0.5)
 
 # find max death value
 max_death = maximum(points[idx2, 2])
@@ -1233,13 +1233,13 @@ end
 
  # if highlight is provided, color specific points with the given color
 if highlight != []
-     scatter!(points[highlight,1], points[highlight,2]; kwargs..., color = highlight_color, labels = "", hover = highlight)
+     scatter!(points[highlight,1], points[highlight,2]; kwargs..., color = highlight_color, labels = "")
 end
 
 # plot the cutoff (dotted line) if provided
 if cutoff != nothing
     f(x) = x + cutoff
-    plot!(f, linestyle = :dash, c = "black", label = "", hover = false, linewidth = threshold_lw)
+    plot!(f, linestyle = :dash, c = "black", label = "", linewidth = threshold_lw)
 end
 
 return p
