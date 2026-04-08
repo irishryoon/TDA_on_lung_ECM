@@ -3,7 +3,7 @@
 This repository contains code for paper <a href="https://www.biorxiv.org/content/10.1101/2024.01.05.574362">"Deciphering the diversity and sequence of extracellular matrix and cellular spatial patterns in lung adenocarcinoma using topological data analysis"</a>. 
 
 # Install
-Download <a href="https://julialang.org/downloads/">Julia</a>. We recommend downloading Julia v.1.10.2. For detailed instructions on installing Julia and the necessary packages, see [Julia_install_instructions.pdf][Julia_install_instructions.pdf\]
+Download <a href="https://julialang.org/downloads/">Julia</a>. We recommend downloading Julia v.1.10.2. For detailed instructions on installing Julia and the necessary packages, see 'Julia_install_instructions.pdf'
 
 # Tutorial: Quick-start on computing topological features
 
