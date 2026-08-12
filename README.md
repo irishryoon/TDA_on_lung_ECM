@@ -7,6 +7,8 @@ Download <a href="https://julialang.org/downloads/">Julia</a>. We recommend down
 
 # Tutorial: Quick-start on computing topological features
 
+Please see <a href="https://youtu.be/NVy1eiwraW8">"https://youtu.be/NVy1eiwraW8"</a> for a video tutorial. 
+
 ## 1. Computing persistent homology features
 
 * The code computes topological features from point cloud data. 
